@@ -1,0 +1,5 @@
+[client]
+user = phpappuser
+password = mypassword
+host = mysql-phpapp
+port = 3306

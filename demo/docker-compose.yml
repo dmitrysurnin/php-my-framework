@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  php-phpapp:
+    build:
+      context: .
+      dockerfile: './system/php/Dockerfile'
+    volumes:
+      - '.:/var/www/phpapp.loc/root'
+      - '../../myframework-v1.4:/var/www/myframework-v1.4'
+      - './system/mysql/users:/etc/mysql/users'
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+
+  nginx-phpapp:
+    build:
+      context: .
+      dockerfile: './system/nginx/Dockerfile'
+    ports:
+      - '8500:80'
+      - '8501:81'
+    environment:
+      DEBUG: ${DEBUG} # в конфиг nginx, определено в файле .env
+    volumes:
+      - '.:/var/www/phpapp.loc/root'
+      - './system/nginx/conf:/etc/nginx/conf.d'
+
+  mysql-phpapp:
+    build:
+      context: .
+      dockerfile: './system/mysql/Dockerfile'
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD} # определено в файле .env
+    volumes:
+      - './system/mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf'
+      - './system/mysql/users:/etc/mysql/users'
+    ports:
+      - '3311:3306'

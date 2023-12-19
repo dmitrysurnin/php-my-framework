@@ -1,0 +1,10 @@
+[mysqld]
+disable_log_bin
+skip-name-resolve
+
+sort_buffer_size = 1M
+wait_timeout = 604800
+innodb_log_file_size = 256M
+innodb_file_per_table = ON
+
+default-time-zone = "Europe/Moscow"
