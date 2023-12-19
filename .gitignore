@@ -7,4 +7,4 @@ Thumbs.db
 .idea
 
 # docker-compose enviroment
-.env
+# .env
