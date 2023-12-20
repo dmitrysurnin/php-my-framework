@@ -1,0 +1,141 @@
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+	margin: 0;
+	background-color: #f6f6f6;
+	font-family: Nunito,Helvetica,Arial,sans-serif;
+	min-width: 230px;
+}
+#wrapper {
+	max-width: 1440px;
+	margin: 0 auto;
+	position: relative;
+	min-height: 100%;
+	background-color: #fff;
+	overflow: hidden;
+}
+header {
+	background-color: #e1f4ff;
+	height: 50px;
+	line-height: 50px;
+}
+.sub-header {
+	display: flex;
+	padding: 0 15px;
+	font-size: 1.3rem;
+	flex-wrap: wrap;
+	margin-top: 0;
+}
+.sub-header a {
+	/*color: #0254ed;*/
+	margin: 0;
+	padding: 10px 20px;
+	color: red;
+}
+.sub-header a:hover {
+	background-color: #ecfcff;
+}
+.sub-header a.active {
+	background-color: #ecfcff;
+	color: #0254ed;
+}
+@media screen and (max-width: 461px) {
+	.sub-header a {
+		padding: 5px 20px;
+	}
+}
+#logo {
+	float: left;
+}
+#logo a {
+	color: #0273ed;
+	display: block;
+	padding: 0 0 0 30px;
+	font-size: 0;
+}
+@media screen and (max-width: 601px) {
+	#logo a {
+		padding: 0 0 0 20px;
+	}
+}
+#logo a img {
+	width: 36px;
+	height: 36px;
+	vertical-align: middle;
+	border: 1px solid #aee4ff;
+	border-radius: 10px;
+}
+#logo a span {
+	font-size: 1.39rem;
+	vertical-align: middle;
+	padding: 0 15px;
+}
+#logo a span.name-main-ext {
+	padding: 0;
+}
+#logo a:hover {
+	background-color: #e4f9ff;
+}
+#logo a.active {
+	background-color: #e4f9ff;
+}
+@media screen and (max-width: 925px) {
+	span.name-main-ext {
+		display: none;
+	}
+}
+#nav {
+	font-size: 18px;
+}
+#nav a {
+	color: #0273ed;
+	display: block;
+	padding: 0 10px;
+	float: left;
+}
+#nav a:hover {
+	background-color: #e4f9ff;
+}
+#nav a.active {
+	background-color: #ebf6ff;
+}
+#nav-right {
+	font-size: 1.125rem;
+	float: right;
+}
+#nav-right a {
+	color: #0273ed;
+	display: block;
+	padding: 0 15px;
+	float: left;
+}
+#nav-right a:hover {
+	background-color: #e4f9ff;
+}
+#nav-right a.active {
+	background-color: #f3fbff;
+}
+#content {
+	padding: 12px 24px 30px;
+}
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	clear: both;
+	height: 30px;
+	line-height: 30px;
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-align: center;
+	user-select: none;
+}
+footer .copyright {
+	color: #aaa;
+}
+.shutdown-footer {
+	position: initial !important;
+}

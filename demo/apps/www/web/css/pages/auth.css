@@ -1,0 +1,92 @@
+.login, .restore-complete {
+	margin: 0 auto;
+	padding-top: 50px;
+	max-width: 580px;
+}
+h2 {
+	color: #1e86f5;
+	font-weight: normal;
+	font-size: 24px;
+}
+a {
+	color: #0273ed;
+}
+form {
+	padding-top: 5px;
+	font-size: 18px;
+	max-width: 550px;
+	margin: 0 auto;
+}
+form > div {
+	display: flex;
+	flex-direction: row;
+	column-gap: 25px;
+	margin: 10px 0 0;
+}
+form > div > label {
+	width: 90px;
+	line-height: 38px;
+	text-align: right;
+	flex-shrink: 0;
+}
+.restore-complete form > div > label {
+	width: 125px;
+}
+form > div > label.empty {
+	flex-shrink: initial;
+}
+form > div > div {
+	flex-grow: 1;
+}
+.recaptcha-cont {
+	min-height: 78px;
+}
+.recaptcha-cont .g-recaptcha {
+}
+form p.error,
+form span.error {
+	color: #ff4444;
+	font-size: 1rem;
+}
+form input[type="text"],
+form input[type="password"] {
+	font-family: Nunito,Helvetica,Arial,sans-serif;
+	font-size: 18px;
+	padding: 6px 12px;
+}
+form input::placeholder {
+	color: #cccccc;
+	font-size: 1rem;
+}
+div.bottom-link {
+	padding-top: 15px;
+}
+
+input, select {
+	padding: 8px;
+}
+input {
+	width: 100%;
+}
+input.error {
+	border-color: #ffbbbb;
+	background-color: #fff0f0;
+}
+
+button.default {
+	padding: 7px 20px;
+	font-size: 1.125rem;
+}
+
+form div.help-links {
+	float: right;
+	font-size: 14px;
+	line-height: 35px;
+}
+form div.help-links a.reg {
+	white-space: nowrap;
+	margin-left: 15px;
+}
+form div.help-links a.reg:hover {
+	color: #4c7eb7;
+}
