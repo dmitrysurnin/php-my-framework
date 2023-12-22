@@ -69,15 +69,17 @@ CREATE TABLE `phpapp`.`articles` (
 
 -- данные
 INSERT INTO `phpapp_auth`.`users` VALUES (1,'Админ',NULL,'admin@mysite.ru','ce8635b4dad92b0565821fa9359974cc',1,1,'2000-01-01 00:00:00');
-INSERT INTO `phpapp_auth`.`users` VALUES (2,'Юзер А',NULL,'usera@mail.ru','ce8635b4dad92b0565821fa9359974cc',1,0,NOW());
-INSERT INTO `phpapp_auth`.`users` VALUES (3,'Юзер Б',NULL,'userb@mail.ru','ce8635b4dad92b0565821fa9359974cc',1,0,NOW());
+INSERT INTO `phpapp_auth`.`users` VALUES (2,'Юзер А',NULL,'user1@mail.ru','ce8635b4dad92b0565821fa9359974cc',1,0,NOW());
+INSERT INTO `phpapp_auth`.`users` VALUES (3,'Юзер Б',NULL,'user2@mail.ru','ce8635b4dad92b0565821fa9359974cc',1,0,NOW());
+INSERT INTO `phpapp_auth`.`users` VALUES (4,'Юзер В',NULL,'user3@mail.ru','ce8635b4dad92b0565821fa9359974cc',1,0,NOW());
+INSERT INTO `phpapp_auth`.`users` VALUES (5,'Юзер Г',NULL,'user4@mail.ru','ce8635b4dad92b0565821fa9359974cc',1,0,NOW());
 INSERT INTO `phpapp`.`articles` VALUES (1,1,'Название 1','Контент 1',NOW(),NOW());
 INSERT INTO `phpapp`.`articles` VALUES (2,1,'Название 2','Контент 2',NOW(),NOW());
 INSERT INTO `phpapp`.`articles` VALUES (3,1,'Название 3','Контент 3',NOW(),NOW());
 INSERT INTO `phpapp`.`articles` VALUES (4,1,'Название 4','Контент 4',NOW(),NOW());
-INSERT INTO `phpapp`.`articles` VALUES (5,1,'Название 5','Контент 5',NOW(),NOW());
+INSERT INTO `phpapp`.`articles` VALUES (5,2,'Название 5','Контент 5',NOW(),NOW());
 INSERT INTO `phpapp`.`articles` VALUES (6,2,'Название 6','Контент 6',NOW(),NOW());
 INSERT INTO `phpapp`.`articles` VALUES (7,2,'Название 7','Контент 7',NOW(),NOW());
-INSERT INTO `phpapp`.`articles` VALUES (8,2,'Название 8','Контент 8',NOW(),NOW());
+INSERT INTO `phpapp`.`articles` VALUES (8,3,'Название 8','Контент 8',NOW(),NOW());
 INSERT INTO `phpapp`.`articles` VALUES (9,3,'Название 9','Контент 9',NOW(),NOW());
-INSERT INTO `phpapp`.`articles` VALUES (10,3,'Название 10','Контент 10',NOW(),NOW());
+INSERT INTO `phpapp`.`articles` VALUES (10,4,'Название 10','Контент 10',NOW(),NOW());

@@ -7,7 +7,7 @@ services:
       dockerfile: './system/php/Dockerfile'
     volumes:
       - '.:/var/www/phpapp.loc/root'
-      - '../../myframework-v1.4:/var/www/myframework-v1.4'
+      - '../myframework:/var/www/myframework'
       - './system/mysql/users:/etc/mysql/users'
     extra_hosts:
       - 'host.docker.internal:host-gateway'
