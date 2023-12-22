@@ -30,9 +30,9 @@ abstract class CAuthShort extends CSingleton
 
 	protected array $_messages;
 
-	protected static string $_passwordSalt; /// определить в наследнике
+	protected string $_passwordSalt; /// определить в наследнике
 
-	protected static string $_tokenSalt; /// определить в наследнике
+	protected string $_tokenSalt; /// определить в наследнике
 
 	protected function __construct()
 	{
@@ -240,9 +240,9 @@ abstract class CAuthShort extends CSingleton
 		return 0;
 	}
 
-	public static function encodePassword(string $password): string
+	public function encodePassword(string $password): string
 	{
-		return md5($password . self::$_passwordSalt);
+		return md5($password . $this->_passwordSalt);
 	}
 
 	protected function _message(string $key, array $params): string

@@ -5,7 +5,7 @@ final class Auth extends \myframework\CAuth
 {
 	protected string $_passwordSalt = '12345678901234567890123456789012'; /// todo: изменить на свой случайный набор символов
 
-	public string $tokenSalt = '12345678901234567890123456789012'; /// todo: изменить на свой случайный набор символов
+	protected string $_tokenSalt = '12345678901234567890123456789012'; /// todo: изменить на свой случайный набор символов
 
 	protected function _getCaptchaActionCount(string $action): int
 	{

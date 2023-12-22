@@ -49,7 +49,7 @@ sql
 		)
 			->param(':name', $name) /// имя
 			->param(':email', $email) /// здесь email не в lowercase, а как его ввёл юзер
-			->param(':password', Auth::encodePassword($password)) /// хеш пароля
+			->param(':password', Auth::inst()->encodePassword($password)) /// хеш пароля
 			->execute();
 
 		$userId = F::$mysql->lastInsertId();
@@ -69,7 +69,7 @@ sql
 		)
 			->param(':login', $login) /// здесь login не в lowercase, а как его ввёл юзер
 			->param(':email', $email) /// здесь email не в lowercase, а как его ввёл юзер
-			->param(':password', Auth::encodePassword($password)) /// хеш пароля
+			->param(':password', Auth::inst()->encodePassword($password)) /// хеш пароля
 			->execute();
 
 		$userId = F::$mysql->lastInsertId();

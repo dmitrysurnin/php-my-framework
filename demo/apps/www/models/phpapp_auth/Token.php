@@ -5,7 +5,7 @@ class Token extends \super\Token
 {
 	public static function createForAction(int $userId, string $action): string
 	{
-		$hash = md5($userId . $action . self::$_tokenSalt);
+		$hash = Auth::inst()->createTokenHash($userId, $action);
 
 		F::$mysql->query(<<<sql
 INSERT IGNORE INTO phpapp_auth.tokens SET

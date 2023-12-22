@@ -200,4 +200,9 @@ abstract class CAuth extends CAuthShort
 	/// определить в наследнике
 	abstract protected function _createToken(int $userId, string $action): string;
 
+	public function createTokenHash(string $userId, string $action): string
+	{
+		return md5($userId . $action . $this->_tokenSalt);
+	}
+
 }
