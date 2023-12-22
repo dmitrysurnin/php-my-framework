@@ -14,13 +14,14 @@ class Article extends \super\Article
 	{
 		$this->validNotEmpty($post, 'title');
 
-		$this->validNotEmpty($post, 'html');
+		$this->validNotEmpty($post, 'content');
 
 		return $this->_errors;
 	}
 
 	protected function _beforeSave(array &$post)
 	{
+		! $this->id and $post['user_id'] = F::$app->session->user_id;
 	}
 
 	public function applyFilter(array $filter): self
