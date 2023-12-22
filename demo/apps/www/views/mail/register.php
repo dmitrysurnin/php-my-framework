@@ -7,8 +7,6 @@ namespace www;
 /** @var $password string */
 ?>
 
-<div style="border-bottom: 2px solid #a7d2ff; height: 0;"></div>
-
 <p style="padding: 20px 24px 0;"><b>Здравствуйте, <?= $name ?>!</b></p>
 
 <p style="padding: 0 24px;">Вы зарегистрировались на сайте ....</p>

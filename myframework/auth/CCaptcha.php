@@ -26,13 +26,15 @@ class CCaptcha extends CSingleton
 
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
+		curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+
 		$result = curl_exec($ch);
 
 		curl_close($ch);
 
 		$data = json_decode($result, true);
 
-		return $data['success'];
+		return $data ? $data['success'] : false;
 	}
 
 }

@@ -5,8 +5,6 @@ namespace www;
 /** @var $email string */
 ?>
 
-<div style="border-bottom: 2px solid #a7d2ff; height: 0;"></div>
-
 <p style="padding: 20px 24px 0;"><b>Здравствуйте!</b></p>
 
 <p style="padding: 0 24px;">Вы запросили восстановление пароля на сайте ....</p>

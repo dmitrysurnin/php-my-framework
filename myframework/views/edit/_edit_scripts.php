@@ -16,7 +16,7 @@ window.p = {};
 		.on('click', 'button[type="submit"]', function(e) {
 			let t = $(this);
 			setTimeout(function() {
-				t.attr('disabled', 'disabled');
+				t.prop('disabled', true);
 			}, 1);
 		})
 		.on('click', 'a.file-upload', function() {
@@ -26,7 +26,7 @@ window.p = {};
 
 	$(window).on('load', function() {
 
-		$('button[type="submit"]').removeAttr('disabled');
+		$('button[type="submit"]').prop('disabled', false);
 
 		$('input.bootstrap-datepicker').each(function() {
 			$(this)
