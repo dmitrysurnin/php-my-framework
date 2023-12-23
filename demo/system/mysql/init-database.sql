@@ -68,11 +68,11 @@ CREATE TABLE `phpapp`.`articles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- данные
-INSERT INTO `phpapp_auth`.`users` VALUES (1,'Админ',NULL,'admin@mysite.ru','ce8635b4dad92b0565821fa9359974cc',1,1,'2000-01-01 00:00:00');
-INSERT INTO `phpapp_auth`.`users` VALUES (2,'Юзер А',NULL,'user1@mail.ru','ce8635b4dad92b0565821fa9359974cc',1,0,NOW());
-INSERT INTO `phpapp_auth`.`users` VALUES (3,'Юзер Б',NULL,'user2@mail.ru','ce8635b4dad92b0565821fa9359974cc',1,0,NOW());
-INSERT INTO `phpapp_auth`.`users` VALUES (4,'Юзер В',NULL,'user3@mail.ru','ce8635b4dad92b0565821fa9359974cc',1,0,NOW());
-INSERT INTO `phpapp_auth`.`users` VALUES (5,'Юзер Г',NULL,'user4@mail.ru','ce8635b4dad92b0565821fa9359974cc',1,0,NOW());
+INSERT INTO `phpapp_auth`.`users` VALUES (1,'Админ',NULL,'admin@mysite.ru','ce8635b4dad92b0565821fa9359974cc',1,1,'2000-01-01 00:00:00',NOW());
+INSERT INTO `phpapp_auth`.`users` VALUES (2,'Юзер А',NULL,'user1@mail.ru','ce8635b4dad92b0565821fa9359974cc',1,0,NOW(),NOW());
+INSERT INTO `phpapp_auth`.`users` VALUES (3,'Юзер Б',NULL,'user2@mail.ru','ce8635b4dad92b0565821fa9359974cc',1,0,NOW(),NOW());
+INSERT INTO `phpapp_auth`.`users` VALUES (4,'Юзер В',NULL,'user3@mail.ru','ce8635b4dad92b0565821fa9359974cc',1,0,NOW(),NOW());
+INSERT INTO `phpapp_auth`.`users` VALUES (5,'Юзер Г',NULL,'user4@mail.ru','ce8635b4dad92b0565821fa9359974cc',1,0,NOW(),NOW());
 INSERT INTO `phpapp`.`articles` VALUES (1,1,'Название 1','Контент 1',NOW(),NOW());
 INSERT INTO `phpapp`.`articles` VALUES (2,1,'Название 2','Контент 2',NOW(),NOW());
 INSERT INTO `phpapp`.`articles` VALUES (3,1,'Название 3','Контент 3',NOW(),NOW());
