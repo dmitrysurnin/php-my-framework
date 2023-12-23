@@ -73,7 +73,7 @@ class CAdminController extends CController
 		}
 		else
 		{
-			$this->totalRows = $this->model->loadApproximateCount();
+			$this->totalRows = $this->model->findApproximateCount();
 		}
 
 		$this->pagesNum = (int) ceil($this->totalRows / $this->_itemsPerPage);
@@ -174,6 +174,8 @@ class CAdminController extends CController
 		$this->request->isAjax or $this->redirect('/' . $this->controller);
 
 		$this->model->deleteById($id);
+
+		$this->model->init();
 
 		$this->actionIndex();
 	}

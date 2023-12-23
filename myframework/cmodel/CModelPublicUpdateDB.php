@@ -1,6 +1,9 @@
 <?php
 namespace myframework;
 
+/*
+ * Тут методы на изменение (создание, обновление, удаление) данных.
+ */
 trait CModelPublicUpdateDB
 {
 	public function save(array $post = []): bool
@@ -13,14 +16,10 @@ trait CModelPublicUpdateDB
 
 		if (empty($this->id))
 		{
-			$this->_beforeInsert($post);
-
 			$ok = !! $this->insert($post);
 		}
 		else
 		{
-			$this->_beforeUpdate($post);
-
 			$ok = !! $this->update($post);
 		}
 
@@ -33,7 +32,7 @@ trait CModelPublicUpdateDB
 
 	public function insert(array $post = []): ?CModel
 	{
-		F::assert(empty($this->id));
+		F::assert(empty($this->id)); /// нельзя вызвать "insert" для уже найденной модели, можно только для пустой (не инициализированной)
 
 		$this->_createInsertCommand($post);
 
@@ -43,8 +42,6 @@ trait CModelPublicUpdateDB
 
 			$this->setAttributes($post); /// надо ли это тут?
 
-//			$this->_created = true;
-
 			return $this;
 		}
 
@@ -53,7 +50,7 @@ trait CModelPublicUpdateDB
 
 	public function update(array $post = []): ?CModel
 	{
-		F::assert(! empty($this->id)); /// нельзя вызвать "saveAttributes" у пустой модели, сначала выполните "find"
+		F::assert(! empty($this->id)); /// нельзя вызвать "update" у пустой модели, сначала выполните "find"
 
 		$this->_initModelData(); /// требуется, т.к модель уже заполнена, значит не инициализирована
 
@@ -62,8 +59,6 @@ trait CModelPublicUpdateDB
 		if ($this->_execute())
 		{
 			$this->setAttributes($post); /// надо ли это тут?
-
-//			$this->_updated = true;
 
 			return $this;
 		}
@@ -118,6 +113,7 @@ trait CModelPublicUpdateDB
 	}
 
 	/**
+	 * Метод, который перед созданием ищет, есть ли уже такая строка, и если есть, то возвращает её.
 	 */
 	public function findCreateByAttributes(array $attributesFind, array $attributesCreate = []): CModel
 	{
@@ -131,8 +127,6 @@ trait CModelPublicUpdateDB
 		$this->_initModelData(); /// требуется, т.к чуть выше был find
 
 		$this->insert($attributesFind + $attributesCreate); /// INSERT INTO ... SET ...
-
-//		$this->_finder->created = true;
 
 		return $this;
 	}
@@ -171,24 +165,6 @@ trait CModelPublicUpdateDB
 		$this->setAttributes($uniqueKey + $attributesToUpdateOnDuplicateKey); /// надо ли это тут?
 
 		return $this;
-
-//		if ($result == 1)
-//		{
-//			$this->_finder->created = true;
-//		}
-//		elseif ($result == 2)
-//		{
-//			$this->_finder->updated = true;
-//		}
-//
-//		return $this;
-	}
-
-	/**
-	 */
-	public function createUpdateByAttributes(array $attributesUpdate, array $attributesCreate = [])
-	{
-		return $this->insertUpdateByAttributes($attributesUpdate, $attributesCreate);
 	}
 
 	public function updateWhere(array $attributesUpdate, array $attributesWhere): int
@@ -250,14 +226,7 @@ trait CModelPublicUpdateDB
 
 					foreach ($columns as $column)
 					{
-//						if ($column == 'id')
-//						{
-//							$this->id = 0;
-//						}
-//						else
-						{
-							$this->$column = '';
-						}
+						$this->$column = '';
 					}
 				}
 				else
@@ -287,14 +256,6 @@ trait CModelPublicUpdateDB
 	}
 
 	protected function _beforeSave(array &$post)
-	{
-	}
-
-	protected function _beforeInsert(array &$post)
-	{
-	}
-
-	protected function _beforeUpdate(array &$post)
 	{
 	}
 

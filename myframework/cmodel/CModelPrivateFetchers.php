@@ -1,15 +1,14 @@
 <?php
 namespace myframework;
 
+/*
+ * Публичные фетчеры сводятся к этим приватным.
+ */
 trait CModelPrivateFetchers
 {
 	private function _fetchOneIntoModel(): ?CModel
 	{
-		$this->_modelData->_sql = $this->_collectQuery();
-
-		$query = new CMysqlQuery($this->_modelData->_sql);
-
-		$query->params($this->_modelData->_params);
+		$query = $this->_createQuery();
 
 		$result = $query->fetchOneIntoModel($this);
 
@@ -20,11 +19,7 @@ trait CModelPrivateFetchers
 	{
 		$className or $className = get_class($this);
 
-		$this->_modelData->_sql = $this->_collectQuery();
-
-		$query = new CMysqlQuery($this->_modelData->_sql);
-
-		$query->params($this->_modelData->_params);
+		$query = $this->_createQuery();
 
 		$result = $query->fetchAllClass($className);
 
@@ -33,15 +28,22 @@ trait CModelPrivateFetchers
 
 	private function _fetchAllArrayPlain(): array
 	{
+		$query = $this->_createQuery();
+
+		$result = $query->fetchAllArrayPlain();
+
+		return $result;
+	}
+
+	private function _createQuery(): CMysqlQuery
+	{
 		$this->_modelData->_sql = $this->_collectQuery();
 
 		$query = new CMysqlQuery($this->_modelData->_sql);
 
 		$query->params($this->_modelData->_params);
 
-		$result = $query->fetchAllArrayPlain();
-
-		return $result;
+		return $query;
 	}
 
 }

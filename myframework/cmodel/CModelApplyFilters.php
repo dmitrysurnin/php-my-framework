@@ -1,15 +1,17 @@
 <?php
 namespace myframework;
 
-trait CModelApplyFilter
+/*
+ * Тут фильтры для полей во вьюшках.
+ */
+trait CModelApplyFilters
 {
+	/*
+	 * Этот метод следует переопределить или расширить в наследнике (в конкретной модели).
+	 */
 	public function applyFilter(array $filter): self
 	{
 		$this->_applyFilterEqual($filter, 't.id');
-
-		$this->_applyFilterLike($filter, 't.name');
-
-		$this->_applyFilterEqual($filter, 't.hidden');
 
 		return $this;
 	}
@@ -54,7 +56,7 @@ trait CModelApplyFilter
 		}
 	}
 
-	public function _applyFilterGreater(array $filter, string $name, string $field = null): void
+	protected function _applyFilterGreater(array $filter, string $name, string $field = null): void
 	{
 		$field or $field = $name;
 
@@ -64,7 +66,7 @@ trait CModelApplyFilter
 		}
 	}
 
-	public function _applyFilterSmaller(array $filter, string $name, string $field = null): void
+	protected function _applyFilterSmaller(array $filter, string $name, string $field = null): void
 	{
 		$field or $field = $name;
 
@@ -92,7 +94,7 @@ trait CModelApplyFilter
 		}
 	}
 
-	public function _applyFilterHavingLikeBoth(array $filter, string $name, string $field = null): void
+	protected function _applyFilterHavingLikeBoth(array $filter, string $name, string $field = null): void
 	{
 		$field or $field = $name;
 
@@ -102,7 +104,7 @@ trait CModelApplyFilter
 		}
 	}
 
-	public function _applyFilterHavingEqual(array $filter, string $name, string $field = null): void
+	protected function _applyFilterHavingEqual(array $filter, string $name, string $field = null): void
 	{
 		$field or $field = $name;
 
@@ -112,7 +114,7 @@ trait CModelApplyFilter
 		}
 	}
 
-	public function _applyFilterHavingNotEmpty(array $filter, string $name, string $field = null): void
+	protected function _applyFilterHavingNotEmpty(array $filter, string $name, string $field = null): void
 	{
 		$field or $field = $name;
 
@@ -122,7 +124,7 @@ trait CModelApplyFilter
 		}
 	}
 
-	public function _applyFilterHavingGreater(array $filter, string $name, string $field = null): void
+	protected function _applyFilterHavingGreater(array $filter, string $name, string $field = null): void
 	{
 		$field or $field = $name;
 
@@ -132,7 +134,7 @@ trait CModelApplyFilter
 		}
 	}
 
-	public function _applyFilterHavingSmaller(array $filter, string $name, string $field = null): void
+	protected function _applyFilterHavingSmaller(array $filter, string $name, string $field = null): void
 	{
 		$field or $field = $name;
 

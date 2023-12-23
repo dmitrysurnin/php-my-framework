@@ -22,7 +22,6 @@ sql
 			->execute();
 
 		return $hash;
-
 	}
 
 	public static function loadByHash(string $hash): ?Token

@@ -1,6 +1,9 @@
 <?php
 namespace myframework;
 
+/*
+ * Тут валидация модели перед созданием/изменением.
+ */
 trait CModelValidate
 {
 	public function validate(array &$post): array

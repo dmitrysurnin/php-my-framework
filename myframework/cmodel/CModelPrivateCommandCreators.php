@@ -1,7 +1,10 @@
 <?php
 namespace myframework;
 
-trait CModelPrivateCreateCommands
+/*
+ * Тут создатели комманд к БД (т.е. строки SQL-запроса).
+ */
+trait CModelPrivateCommandCreators
 {
 	private function _createInsertCommand(array $attributes): void
 	{
@@ -30,7 +33,7 @@ trait CModelPrivateCreateCommands
 		$this->_modelData->_sql = "INSERT INTO $tableName SET $set";
 	}
 
-	public function _createUpdateCommand(array $attributes): void
+	private function _createUpdateCommand(array $attributes): void
 	{
 		$tableName = $this->tableName();
 
@@ -173,6 +176,9 @@ trait CModelPrivateCreateCommands
 		$this->_checkParams();
 	}
 
+	/*
+	 * Необходимо убирать лишние неиспользуемые параметры, т.к. PDO падает, если параметров больше, чем нужно.
+	 */
 	private function _checkParams()
 	{
 		foreach ($this->_modelData->_params as $key => $param)

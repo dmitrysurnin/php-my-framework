@@ -1,6 +1,9 @@
 <?php
 namespace myframework;
 
+/*
+ * Тут публичные методы на выборку (извлечение) данных.
+ */
 trait CModelPublicFinders
 {
 	public function find(): ?static
@@ -53,7 +56,7 @@ trait CModelPublicFinders
 		return $result;
 	}
 
-	public function findDistinctValues(string $field)
+	public function findDistinctValues(string $field): array
 	{
 		F::assert(empty($this->id));
 
@@ -68,7 +71,7 @@ trait CModelPublicFinders
 		return $result;
 	}
 
-	public function loadApproximateCount(): int
+	public function findApproximateCount(): int
 	{
 		$tableName = $this->tableName();
 

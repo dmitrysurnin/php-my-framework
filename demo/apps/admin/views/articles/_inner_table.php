@@ -53,6 +53,7 @@ namespace admin;
 				<td class="nowrap"><?= $one->updated ?></td>
 				<td class="center nowrap">
 					<a class="fa fa-pencil" href="/articles/edit/<?= $one->id ?>" title="редактировать"></a>
+					<a class="fa fa-trash-o" href="/articles/delete/<?= $one->id ?>" title="удалить"></a>
 				</td>
 			</tr>
 		<?php endforeach; ?>
