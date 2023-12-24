@@ -24,5 +24,4 @@
 
 После авторизации можно попасть в админку сайта:
 
-![image](https://github.com/dmitrysurnin/php-my-framework/assets/2225884/9cd7bfdb-9464-4621-bc31-60e0080e346f)
-
+![image](https://github.com/dmitrysurnin/php-my-framework/assets/2225884/8981f2d4-d4ad-4a82-b7bf-11c9dd0c0a5d)
