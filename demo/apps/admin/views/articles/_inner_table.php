@@ -35,8 +35,14 @@ namespace admin;
 				<th>
 					<?= $this->htmlFilterInput('t.title', ['placeholder' => '%%']); ?>
 				</th>
-				<th></th>
-				<th></th>
+				<th>
+					<?= $this->htmlFilterDate('created_from', 'yyyy-mm-dd', ['placeholder' => 'с']); ?>
+					<?= $this->htmlFilterDate('created_to', 'yyyy-mm-dd', ['placeholder' => 'по']); ?>
+				</th>
+				<th>
+					<?= $this->htmlFilterDate('updated_from', 'yyyy-mm-dd', ['placeholder' => 'с']); ?>
+					<?= $this->htmlFilterDate('updated_to', 'yyyy-mm-dd', ['placeholder' => 'по']); ?>
+				</th>
 				<th class="nowrap center middle" style="width: 1%;">
 					<button class="btn btn-mini filter_clear">очистить</button>
 				</th>

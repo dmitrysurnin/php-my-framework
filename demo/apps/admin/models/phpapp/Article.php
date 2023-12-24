@@ -32,6 +32,14 @@ class Article extends \super\Article
 
 		$this->_applyFilterLikeBoth($filter, 't.title');
 
+		$this->_applyFilterGreater($filter, 'created_from', 't.created');
+
+		$this->_applyFilterSmaller($filter, 'created_to', 't.created');
+
+		$this->_applyFilterGreater($filter, 'updated_from', 't.updated');
+
+		$this->_applyFilterSmaller($filter, 'updated_to', 't.updated');
+
 		return $this;
 	}
 
