@@ -236,7 +236,7 @@ class CAdminController extends CController
 		$this->request->data('order') and $this->_order = (int) $this->request->data('order');
 	}
 
-	public function renderDataTable($tableView, array $data = [])
+	public function renderTable($tableView, array $data = [])
 	{
 		$this->render(F_ROOT . '/views/index_table/_index_scripts');
 

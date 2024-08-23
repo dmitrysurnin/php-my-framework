@@ -7,6 +7,8 @@ final class Auth extends \myframework\CAuth
 
 	protected string $_tokenSalt = '12345678901234567890123456789012'; /// todo: изменить на свой случайный набор символов
 
+	protected string $_captchaPrivateKey = '6LdSqTApAAAAAL7dIk0h7y0eLNEOOWHf_ITpv3Lw'; /// todo: изменить ключ на свой
+
 	protected function _getCaptchaActionCount(string $action): int
 	{
 		return CaptchaAction::getCount($action);

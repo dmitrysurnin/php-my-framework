@@ -65,5 +65,8 @@ namespace www;
 			$(this).addClass('loading');
 		});
 
+	$('input[name="email"]').val() || $('input[name="email"]').val('admin@mysite.ru');
+	$('input[name="password"]').val() || $('input[name="password"]').val('qwerty');
+
 })();
 </script>

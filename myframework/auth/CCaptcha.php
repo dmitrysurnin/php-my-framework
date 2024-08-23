@@ -9,10 +9,10 @@ class CCaptcha extends CSingleton
 	 * Приватный ключ здесь, публичные во вьюшках.
 	 * https://www.google.com/recaptcha/
 	 */
-	public static function checkCaptcha($captcha): bool
+	public static function checkCaptcha($captcha, string $key = ''): bool
 	{
 		$params = [
-			'secret' => '6LdSqTApAAAAAL7dIk0h7y0eLNEOOWHf_ITpv3Lw', /// todo: нужно изменить ключи на свои!
+			'secret' => $key,
 			'response' => $captcha,
 		];
 

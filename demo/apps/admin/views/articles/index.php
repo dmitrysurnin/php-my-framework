@@ -9,7 +9,7 @@ namespace admin;
 </p>
 
 <?php
-$this->renderDataTable('_inner_table', [
+$this->renderTable('_inner_table', [
 	'data' => $data,
 ]);
 ?>

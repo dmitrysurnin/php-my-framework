@@ -168,7 +168,7 @@ abstract class CAuthShort extends CSingleton
 			{
 				$errors['captcha'] = $this->_messages['captcha.empty'];
 			}
-			elseif (! CCaptcha::checkCaptcha($captcha))
+			elseif (! CCaptcha::checkCaptcha($captcha, $this->_captchaPrivateKey))
 			{
 				$errors['captcha'] = $this->_messages['captcha.wrong'];
 			}

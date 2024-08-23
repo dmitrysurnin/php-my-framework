@@ -24,14 +24,14 @@ namespace www;
 			<header>
 				<div id="logo">
 					<a href="/" class="logo-main<?= $this->controller == 'welcome' ? ' active' : '' ?>">
-						<img src="/images/logo.png">
 						<span>Имя Сайта</span>
 					</a>
 				</div>
 				<div id="nav-right">
 					<?php if ($this->session->user_id) : ?>
+						<span><?= $this->session->user_name ?></span>
 						<?php if ($this->session->user_is_admin) : ?>
-							<a href="http://localhost:8501/" style="color:red">admin</a>
+							<a href="http://localhost:8501/" style="color:red">админка</a>
 						<?php endif?>
 						<a href="/auth/logout">выйти</a>
 					<?php else : ?>
@@ -43,7 +43,7 @@ namespace www;
 				<?= $view ?>
 			</div>
 			<footer>
-				<span class="copyright">Мой Сайт <?= date('Y') ?></span>
+				<span class="copyright">Сайт <?= date('Y') ?></span>
 			</footer>
 		</div>
 	</body>

@@ -11,7 +11,8 @@ class Controller extends \myframework\CAdminController
 
 		if (! $this->session->user_id || ! $this->session->user_is_admin)
 		{
-			$this->redirect($this->request->home);
+//			$this->redirect($this->request->home);
+			$this->redirect('http://localhost:8500/auth');
 		}
 	}
 
