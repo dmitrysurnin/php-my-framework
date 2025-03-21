@@ -6,6 +6,7 @@ namespace myframework;
  */
 abstract class CApplication
 {
+
 	public array $_config;
 
 	public array $classesList = [];

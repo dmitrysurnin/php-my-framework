@@ -225,6 +225,7 @@ class CController
 		$this->head[] = '<script type="text/javascript" src="' . $path . '"></script>';
 	}
 
+
 	public function addToHeader(array $array): void
 	{
 		$this->head = array_merge($this->head, $array);
