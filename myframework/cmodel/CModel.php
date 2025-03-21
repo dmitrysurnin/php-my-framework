@@ -19,7 +19,7 @@ abstract class CModel extends \stdClass
 
 	use CModelValidate;
 
-	public static function model(): CModel
+	public static function model(): static
 	{
 		$model = new static();
 

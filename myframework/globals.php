@@ -67,13 +67,15 @@ function date_ru($format, $timestamp = null)
 	return date($format, $timestamp);
 }
 
-function remove_invisible_symbols(?string $str)
+function remove_invisible_symbols(?string $str, bool $removeNewLines = true)
 {
 	if ($str !== null)
 	{
 		$str = str_replace(['​', '﻿'], '', $str); /// 0x200B (zero-width space невидимый символ), 0xFEFF (zero-width no-break space невидимый символ)
 
-		$str = str_replace([' ', ' ', ' ', "\r", "\t", "\n", " "], ' ', $str); /// 0x200A (hair space), 0x00A0 (no-break space), 0x202F (narrow no-break space)
+		$str = str_replace([' ', ' ', ' ', "\r", "\t", " "], ' ', $str); /// 0x200A (hair space), 0x00A0 (no-break space), 0x202F (narrow no-break space)
+
+		$removeNewLines and $str = str_replace("\n", ' ', $str);
 
 		$str = preg_replace('| {2,}|msui', ' ', $str);
 
@@ -83,12 +85,22 @@ function remove_invisible_symbols(?string $str)
 	return $str;
 }
 
-function remove_invisible_symbols_array(array $array)
+function remove_invisible_symbols_array(array $array, bool $removeNewLines = true)
 {
-	foreach ($array as $key => $value)
+	foreach ($array as &$value)
 	{
-		$array[$key] = remove_invisible_symbols($array[$key]);
+		$value = remove_invisible_symbols($value, $removeNewLines);
 	}
+
+	return $array;
+}
+
+function remove_invisible_symbols_recursive(array $array, bool $removeNewLines = true)
+{
+	array_walk_recursive($array, function(&$v) use($removeNewLines)
+	{
+		$v = remove_invisible_symbols($v, $removeNewLines);
+	});
 
 	return $array;
 }

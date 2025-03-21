@@ -150,6 +150,11 @@ class CWebRequest
 		return null;
 	}
 
+	public function getParam(string $name): ?string
+	{
+		return $_GET[$name] ?? null;
+	}
+
 	public function getUrl()
 	{
 		if ($this->_url === null)

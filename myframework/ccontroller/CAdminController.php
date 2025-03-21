@@ -116,7 +116,7 @@ class CAdminController extends CController
 		{
 			$model->id = $id;
 
-			$this->_trimValues($post);
+			$this->_preparePostValues($post);
 
 			if (! ($this->_errors = $model->validate($post)))
 			{
@@ -158,13 +158,15 @@ class CAdminController extends CController
 		]);
 	}
 
-	protected function _trimValues(array &$post)
+	protected function _preparePostValues(array &$post)
 	{
 		foreach ($post as &$value)
 		{
 			if (is_string($value))
 			{
-				$value = remove_invisible_symbols($value);
+				$value = remove_invisible_symbols($value, false);
+
+				$value === '' and $value = null;
 			}
 		}
 	}

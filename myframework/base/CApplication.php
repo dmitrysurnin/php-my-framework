@@ -16,6 +16,8 @@ abstract class CApplication
 
 	public CHttpSession $session;
 
+	public CErrorHandler $errorHandler;
+
 	protected bool $_useRoutes = false;
 
 	public array $routes = [];
