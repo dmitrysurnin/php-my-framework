@@ -31,10 +31,12 @@ class CAutoLoader
 		'myframework\CModelPublicFinders' => '/cmodel/CModelPublicFinders.php',
 		'myframework\CModelPublicUpdateDB' => '/cmodel/CModelPublicUpdateDB.php',
 		'myframework\CModelValidate' => '/cmodel/CModelValidate.php',
+		'myframework\CMultiParser' => '/components/parser/CMultiParser.php',
 		'myframework\CMysqlConnector' => '/db/mysql/CMysqlConnector.php',
 		'myframework\CMysqlInstance' => '/db/mysql/CMysqlInstance.php',
 		'myframework\CMysqlQuery' => '/db/mysql/CMysqlQuery.php',
 		'myframework\CMysqlTransaction' => '/db/mysql/CMysqlTransaction.php',
+		'myframework\CQueueElement' => '/components/parser/CQueueElement.php',
 		'myframework\CRender' => '/traits/CRender.php',
 		'myframework\CSingleton' => '/base/CSingleton.php',
 		'myframework\CWebApplication' => '/base/CWebApplication.php',
@@ -51,6 +53,10 @@ class CAutoLoader
 		elseif (isset(F::$app->classesList[$className]))
 		{
 			require_once F::$app->classesList[$className];
+		}
+		elseif (str_starts_with($className, 'super\\') && is_file($fileName = ROOT . '/extends/' . str_replace('super\\', '', $className) . '.php'))
+		{
+			include_once $fileName;
 		}
 		else
 		{
