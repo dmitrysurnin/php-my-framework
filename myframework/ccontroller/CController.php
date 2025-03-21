@@ -164,55 +164,55 @@ class CController
 		return $reflectionMethod->invokeArgs($this, $p);
 	}
 
-    public function saveCurrentUrlToAuthSession()
-    {
-        if (! str_starts_with($this->request->uri, '/auth'))
-        {
-            $this->session->referer_auth = $this->request->url;
-        }
-    }
-
-    public function redirectToAuth()
-    {
-        $this->request->isAjax and exit; /// ajax-запросы не должны требовать редиректа
-
-        $this->saveCurrentUrlToAuthSession(); /// запомнить, куда отредиректить после авторизации
-
-        $this->redirect('/auth');
-    }
-
-    public function saveRefererToAuthSession()
-    {
-        if (! $this->session->referer_auth && ! empty($_SERVER['HTTP_REFERER']))
-        {
-            $info = parse_url($_SERVER['HTTP_REFERER']);
-
-            if ($info['host'] == $this->request->domain && ! str_starts_with($info['path'], '/auth'))
-            {
-                $this->session->referer_auth = $_SERVER['HTTP_REFERER'];
-            }
-        }
-    }
-
-    public function redirectToRefererAuth()
-    {
-        if ($refererAuth = $this->session->referer_auth)
-        {
-            $this->session->referer_auth = '';
-
-            $this->redirect($refererAuth);
-        }
-        else
-        {
-            $this->redirect('/');
-        }
-    }
-
-    public function redirect(string $url = '/', array $data = [], int $code = 301)
+	public function saveCurrentUrlToAuthSession()
 	{
-        $this->request->isAjax and exit; /// ajax-запросы не должны требовать редиректа
+		if (! str_starts_with($this->request->uri, '/auth'))
+		{
+			$this->session->referer_auth = $this->request->url;
+		}
+	}
 
-        $this->request->redirect($url, $data, $code);
+	public function redirectToAuth()
+	{
+		$this->request->isAjax and exit; /// ajax-запросы не должны требовать редиректа
+
+		$this->saveCurrentUrlToAuthSession(); /// запомнить, куда отредиректить после авторизации
+
+		$this->redirect('/auth');
+	}
+
+	public function saveRefererToAuthSession()
+	{
+		if (! $this->session->referer_auth && ! empty($_SERVER['HTTP_REFERER']))
+		{
+			$info = parse_url($_SERVER['HTTP_REFERER']);
+
+			if ($info['host'] == $this->request->domain && ! str_starts_with($info['path'], '/auth'))
+			{
+				$this->session->referer_auth = $_SERVER['HTTP_REFERER'];
+			}
+		}
+	}
+
+	public function redirectToRefererAuth()
+	{
+		if ($refererAuth = $this->session->referer_auth)
+		{
+			$this->session->referer_auth = '';
+
+			$this->redirect($refererAuth);
+		}
+		else
+		{
+			$this->redirect('/');
+		}
+	}
+
+	public function redirect(string $url = '/', array $data = [], int $code = 301)
+	{
+		$this->request->isAjax and exit; /// ajax-запросы не должны требовать редиректа
+
+		$this->request->redirect($url, $data, $code);
 	}
 
 	public function addCss(string $path): void
@@ -223,6 +223,11 @@ class CController
 	public function addJs(string $path): void
 	{
 		$this->head[] = '<script type="text/javascript" src="' . $path . '"></script>';
+	}
+
+	public function addToHeader(array $array): void
+	{
+		$this->head = array_merge($this->head, $array);
 	}
 
 	protected function _assert($condition, $message = '')
